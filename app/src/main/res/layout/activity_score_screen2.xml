@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScoreScreenActivity">
+
+    <ImageView
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/score"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/scoreTxt"
+        android:layout_width="347dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="31dp"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/reviewBtn"
+        android:layout_width="253dp"
+        android:layout_height="71dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="129dp"
+        android:text="Review"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/exitBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/exitBtn"
+        android:layout_width="234dp"
+        android:layout_height="67dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="110dp"
+        android:text="Exit"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/feedBack"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/feedBack"
+        android:layout_width="328dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="77dp"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
