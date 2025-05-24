@@ -17,7 +17,6 @@ class FlashQuestionActivity : AppCompatActivity() {
     private var currentQuestionIndex = 0
     private var score = 0
 
-
     companion object {
         val questions = arrayOf(
             "Hitler was the emperor of Germany in 1914",
@@ -25,12 +24,9 @@ class FlashQuestionActivity : AppCompatActivity() {
             "Nelson Mandela was arrested for 27 years",
             "Mahatma Gandhi was no freedom fighter, he was just touring South Africa",
             "Kaiser Wilhelm II ruled Germany in 1888"
-
         )
 
-        val answers = booleanArrayOf(true, false, true, false, true)
-
-
+        val answers = booleanArrayOf(false, false, true, false, true)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,54 +34,54 @@ class FlashQuestionActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_flash_question)
 
-        // Input UI Elements here
         displayText = findViewById(R.id.displayText)
         True = findViewById(R.id.True)
         False = findViewById(R.id.False)
         Next = findViewById(R.id.next)
         Feedback = findViewById(R.id.Feedback)
 
-        // The first question comes here
+        // The first question goes here
         displayText.text = questions[currentQuestionIndex]
 
         // Set the true and false buttons on click listeners
         True.setOnClickListener { check(true) }
         False.setOnClickListener { check(false) }
 
-        // Set the next button on click listener
+        // Set next button listener
         Next.setOnClickListener {
             if (currentQuestionIndex < questions.size - 1) {
-                currentQuestionIndex++
+                currentQuestionIndex++ // Move to next question
                 displayText.text = questions[currentQuestionIndex]
-
-
+                Feedback.text = "" // Clear previous feedback
             } else {
-                // Link to the score screen
-                val intent = Intent(this, ScoreScreenActivity::class.java)
+                val intent = Intent(this, ReviewActivity::class.java)
+                intent.putExtra("questions", questions) // Pass questions array
+                intent.putExtra("answers", answers) // Pass answers array
+                intent.putExtra("score", score) // Send final score
                 startActivity(intent)
-                finish()   // Close the screen after this is done
+
+
+
+                displayText.text = "Quiz completed! Your score: $score"
+                True.isEnabled = false
+                False.isEnabled = false
+                Next.isEnabled = false
             }
         }
     }
 
+    // Separate function outside onCreate()
     private fun check(userAnswer: Boolean) {
-        val correctionInfo = answers[currentQuestionIndex]
+        val correctAnswer = answers[currentQuestionIndex]
 
-        if (userAnswer == correctionInfo)
+        if (userAnswer == correctAnswer) {
             Feedback.text = "Correct!"
-        else
+            score++
+        } else {
             Feedback.text = "Incorrect!"
-        score++
-
-
+        }
     }
 }
-
-
-
-
-
-
 
 
 

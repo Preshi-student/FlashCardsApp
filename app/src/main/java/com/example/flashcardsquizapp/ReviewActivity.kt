@@ -25,7 +25,8 @@ class ReviewActivity : AppCompatActivity() {
 
         // Fetch questions and answers from the Scorescreen
         val questions = intent.getStringArrayExtra("questions") // Array of the questions
-        val answers = intent.getBooleanArrayExtra("answers")    // Array of boolean answers true/false
+        val answers =
+            intent.getBooleanArrayExtra("answers")    // Array of boolean answers true/false
 
         if (questions != null && answers != null && questions.size == answers.size) {
             val reviewBuilder = StringBuilder()
@@ -35,19 +36,20 @@ class ReviewActivity : AppCompatActivity() {
                 reviewBuilder.append("  Answer: ${if (answers[i]) "True" else "False"}\n\n")
             }
             Review.text = reviewBuilder.toString()
-        }else{
+        } else {
             Review.text = "There was an error that occured when trying to load the review data"
 
         }
         // Set restart button on click listener
-        Restart.setOnClickListener{
+        Restart.setOnClickListener {
             // Link to the previous Flashquestions screen
-            val intent = Intent(this,FlashQuestionActivity::class.java)
+            val intent = Intent(this, FlashQuestionActivity::class.java)
             startActivity(intent)
         }
-        Exit.setOnClickListener{
-            finish()
-            exitProcess(0)   // Close the app
+        Exit.setOnClickListener {
+            finishAffinity() // Closes all activities in the app
+            exitProcess(0)   // Fully shuts down the app
         }
+
     }
 }
