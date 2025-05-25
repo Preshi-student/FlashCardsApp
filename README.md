@@ -41,6 +41,17 @@ Challenge 2: My app was now running but my exit button on the review screen was 
 Solution: So I went back to my ReviewActivity of my kotlin code and realised that I had closed off the code with finish() which only closes one screen and not the entire app.  So I went to edit that code rather to 
 finishaffinity() so the entire app can close. 
 
+References 
+
+IMAD5112 Practicum Discusiion 2024 [video online] Available at: https://youtu.be/_u8zA1CxxV4?si=U6Iru-xPwmDbHGQN
+Kotlin Language Documentation 2.1.20. (n.d.).
+
+References for Images:
+Stock, B. (2013). adventure stories background. [online] iStock. Available at: https://www.istockphoto.com/photo/history-background-gm163881276-23247927 [Accessed 25 May 2025].
+
+Google.com. (2025). Redirect Notice. [online] Available at: https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dquiz%2Bbackground&psig=AOvVaw2pu7zmUcuzwup025RvoIwg&ust=1748291506580000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCLDl1_i7v40DFQAAAAAdAAAAABAE [Accessed 25 May 2025].
+
+
 
 
 
